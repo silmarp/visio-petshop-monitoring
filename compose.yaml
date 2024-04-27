@@ -20,5 +20,12 @@ services:
     volumes:
       - '/:/host:ro,rslave'
 
+  petshop:
+    image: "harbor.sflabs.com.br/processo/petshop:latest"
+    container_name: petshop
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
 volumes:
   prometheus-data:
