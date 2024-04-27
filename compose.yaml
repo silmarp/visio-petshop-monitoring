@@ -27,5 +27,16 @@ services:
       - "3000:3000"
     restart: unless-stopped
 
+  grafana:
+    image: "grafana/grafana-oss:latest"
+    container_name: grafana
+      # Gives permission to use volume
+    user: "$UID:$GID"
+    ports:
+      - "3100:3000"
+    volumes:
+      # It's better to use a docker volume, but for this application we're using a data folder
+      - ./grafana-data:/var/lib/grafana
+
 volumes:
   prometheus-data:
