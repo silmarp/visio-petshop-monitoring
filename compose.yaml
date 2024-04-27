@@ -34,6 +34,7 @@ services:
     user: "$UID:$GID"
     ports:
       - "3100:3000"
+    restart: unless-stopped
     volumes:
       # It's better to use a docker volume, but for this application we're using a data folder
       - ./grafana-data:/var/lib/grafana
