@@ -26,3 +26,7 @@ scrape_configs:
   - job_name: 'petshop'
     static_configs:
       - targets: ['petshop:3000']
+
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
