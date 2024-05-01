@@ -18,6 +18,7 @@
               docker-compose
               docker-ls
               docker-compose-language-service
+              ansible
             ];
           };
         };
