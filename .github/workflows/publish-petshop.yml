@@ -1,0 +1,17 @@
+name: Publish image to Docker hub
+on:
+  [workflow_dispatch]
+
+jobs:
+  publish_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build
+        run: |
+          docker build ./ati -t silmarp/petshop-visio:latest
+      - name: publish
+        run: |
+          docker push silmarp/petshop-visio:latest
+
