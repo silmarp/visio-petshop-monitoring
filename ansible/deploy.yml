@@ -23,6 +23,8 @@
       ansible.builtin.git:
         repo: https://github.com/silmarp/visio-petshop-monitoring.git
         dest: /deploy
+        # can't run task without force because grafana constantly modifies files from volume folder
+        force: true
 
 - name: Run compose
   hosts: hosts
