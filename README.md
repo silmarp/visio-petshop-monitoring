@@ -21,4 +21,12 @@ nix develop
 
 Linux:
 
-Install docker and docker compose with your package manager of choice.
+Install docker, docker compose and ansible with your package manager of choice.
+
+## Deploy using ansible
+
+Remember to change the inventory to hosts you have access
+
+```sh
+ansible-playbook -i ansible/inventory.ini ansible/deploy.yml
+```
