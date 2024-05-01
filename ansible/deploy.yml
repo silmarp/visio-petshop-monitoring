@@ -28,6 +28,11 @@
   hosts: hosts
   become: yes
   tasks:
+    - name: Tear down existing services
+      community.docker.docker_compose:
+        project_src: /deploy 
+        state: absent
+
     - name: Create and start services
       community.docker.docker_compose:
         project_src: /deploy
