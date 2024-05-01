@@ -13,5 +13,6 @@ jobs:
           docker build ./ati -t silmarp/petshop-visio:latest
       - name: publish
         run: |
+          docker login -u silmarp -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push silmarp/petshop-visio:latest
 
