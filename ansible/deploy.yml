@@ -6,6 +6,14 @@
       package:
         name: git
         state: present
+    - name: Install docker
+      package:
+        name: docker
+        state: present
+    - name: Install docker-compose
+      package:
+        name: docker-compose
+        state: present
 
 - name: Clone Repo
   hosts: hosts
@@ -15,3 +23,13 @@
       ansible.builtin.git:
         repo: https://github.com/silmarp/visio-petshop-monitoring.git
         dest: /deploy
+
+- name: Run compose
+  hosts: hosts
+  become: yes
+  tasks:
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: /deploy
+      register: output
+
