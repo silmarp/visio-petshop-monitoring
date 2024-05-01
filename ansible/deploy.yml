@@ -1,0 +1,17 @@
+- name: Install dependencies
+  hosts: hosts
+  become: yes
+  tasks:
+    - name: Install git
+      package:
+        name: git
+        state: present
+
+- name: Clone Repo
+  hosts: hosts
+  become: yes
+  tasks:
+    - name: Clone
+      ansible.builtin.git:
+        repo: https://github.com/silmarp/visio-petshop-monitoring.git
+        dest: /deploy
